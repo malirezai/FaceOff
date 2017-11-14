@@ -16,10 +16,10 @@ namespace FaceOff
 
 		public App()
 		{
-			MainPage = new NavigationPage(_picturePage)
-			{
-				BarBackgroundColor = Color.FromHex("#1FAECE")
-			};
+            var mainNavPage = new NavigationPage(_picturePage);
+            mainNavPage.BarBackgroundColor = Color.FromHex("#1FAECE");
+
+            MainPage = mainNavPage;
 
             MobileCenter.LogLevel = LogLevel.Verbose;
             Distribute.ReleaseAvailable = OnReleaseAvailable;

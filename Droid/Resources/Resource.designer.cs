@@ -26,6 +26,24 @@ namespace FaceOff.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_dialog_actioned_on_disabled_toast = global::FaceOff.Droid.Resource.String.mobile_center_distribute_dialog_actioned_on_disabled_toast;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_download_progress_number_format = global::FaceOff.Droid.Resource.String.mobile_center_distribute_download_progress_number_format;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_downloading_mandatory_update = global::FaceOff.Droid.Resource.String.mobile_center_distribute_downloading_mandatory_update;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_install = global::FaceOff.Droid.Resource.String.mobile_center_distribute_install;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_install_ready_message = global::FaceOff.Droid.Resource.String.mobile_center_distribute_install_ready_message;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_install_ready_title = global::FaceOff.Droid.Resource.String.mobile_center_distribute_install_ready_title;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_notification_category = global::FaceOff.Droid.Resource.String.mobile_center_distribute_notification_category;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_unknown_sources_dialog_message = global::FaceOff.Droid.Resource.String.mobile_center_distribute_unknown_sources_dialog_message;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_unknown_sources_dialog_settings = global::FaceOff.Droid.Resource.String.mobile_center_distribute_unknown_sources_dialog_settings;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_dialog_download = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_dialog_download;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_dialog_message_mandatory = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_dialog_message_mandatory;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_dialog_message_optional = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_dialog_message_optional;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_dialog_postpone = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_dialog_postpone;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_dialog_title = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_dialog_title;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_dialog_view_release_notes = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_dialog_view_release_notes;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_failed_dialog_ignore = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_failed_dialog_ignore;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_failed_dialog_reinstall = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_failed_dialog_reinstall;
+			global::Microsoft.Azure.Mobile.Distribute.Resource.String.mobile_center_distribute_update_failed_dialog_title = global::FaceOff.Droid.Resource.String.mobile_center_distribute_update_failed_dialog_title;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::FaceOff.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -3732,6 +3750,60 @@ namespace FaceOff.Droid
 			
 			// aapt resource value: 0x7f090038
 			public const int character_counter_pattern = 2131296312;
+			
+			// aapt resource value: 0x7f09003e
+			public const int mobile_center_distribute_dialog_actioned_on_disabled_toast = 2131296318;
+			
+			// aapt resource value: 0x7f09003f
+			public const int mobile_center_distribute_download_progress_number_format = 2131296319;
+			
+			// aapt resource value: 0x7f090040
+			public const int mobile_center_distribute_downloading_mandatory_update = 2131296320;
+			
+			// aapt resource value: 0x7f090041
+			public const int mobile_center_distribute_install = 2131296321;
+			
+			// aapt resource value: 0x7f090042
+			public const int mobile_center_distribute_install_ready_message = 2131296322;
+			
+			// aapt resource value: 0x7f090043
+			public const int mobile_center_distribute_install_ready_title = 2131296323;
+			
+			// aapt resource value: 0x7f090044
+			public const int mobile_center_distribute_notification_category = 2131296324;
+			
+			// aapt resource value: 0x7f090045
+			public const int mobile_center_distribute_unknown_sources_dialog_message = 2131296325;
+			
+			// aapt resource value: 0x7f090046
+			public const int mobile_center_distribute_unknown_sources_dialog_settings = 2131296326;
+			
+			// aapt resource value: 0x7f090047
+			public const int mobile_center_distribute_update_dialog_download = 2131296327;
+			
+			// aapt resource value: 0x7f090048
+			public const int mobile_center_distribute_update_dialog_message_mandatory = 2131296328;
+			
+			// aapt resource value: 0x7f090049
+			public const int mobile_center_distribute_update_dialog_message_optional = 2131296329;
+			
+			// aapt resource value: 0x7f09004a
+			public const int mobile_center_distribute_update_dialog_postpone = 2131296330;
+			
+			// aapt resource value: 0x7f09004b
+			public const int mobile_center_distribute_update_dialog_title = 2131296331;
+			
+			// aapt resource value: 0x7f09004c
+			public const int mobile_center_distribute_update_dialog_view_release_notes = 2131296332;
+			
+			// aapt resource value: 0x7f09004d
+			public const int mobile_center_distribute_update_failed_dialog_ignore = 2131296333;
+			
+			// aapt resource value: 0x7f09004e
+			public const int mobile_center_distribute_update_failed_dialog_reinstall = 2131296334;
+			
+			// aapt resource value: 0x7f09004f
+			public const int mobile_center_distribute_update_failed_dialog_title = 2131296335;
 			
 			// aapt resource value: 0x7f090000
 			public const int mr_button_content_description = 2131296256;

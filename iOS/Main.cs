@@ -9,15 +9,15 @@ namespace FaceOff.iOS
 		// This is the main entry point of the application.
 		static void Main(string[] args)
 		{
-			Insights.Initialize(InsightsConstants.InsightsApiKey);
+			//Insights.Initialize(MobileCenterConstants.InsightsApiKey);
 
-			Insights.HasPendingCrashReport += (sender, isStartupCrash) =>
-			{
-				if (isStartupCrash)
-				{
-					Insights.PurgePendingCrashReports().Wait();
-				}
-			};
+			//Insights.HasPendingCrashReport += (sender, isStartupCrash) =>
+			//{
+			//	if (isStartupCrash)
+			//	{
+			//		Insights.PurgePendingCrashReports().Wait();
+			//	}
+			//};
 
 			UIApplication.Main(args, null, "AppDelegate");
 		}

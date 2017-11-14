@@ -22,6 +22,10 @@ namespace FaceOff
 			this.SetBinding(ContentPage.TitleProperty, "PageTitle");
 			BackgroundColor = Color.FromHex("#91E2F4");
 
+            ToolbarItems.Add(new ToolbarItem("X", null, () =>
+            {
+                throw new Exception("Crash button tapped");
+            }));
 
 			#region Create Score Button 1 Stack
 			_photo1ScoreButton = new BounceButton(AutomationIdConstants.ScoreButton1AutomationId);

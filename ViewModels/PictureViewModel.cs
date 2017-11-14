@@ -10,6 +10,8 @@ using Microsoft.ProjectOxford.Emotion.Contract;
 
 using Xamarin;
 using Xamarin.Forms;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace FaceOff
 {
@@ -61,7 +63,7 @@ namespace FaceOff
 				IsTakeRightPhotoButtonEnabled = false;
 				IsScore1ButtonEnabled = false;
 
-				Insights.Track(InsightsConstants.PhotoButton1Tapped);
+                Analytics.TrackEvent(MobileCenterConstants.PhotoButton1Tapped);
 
 				if (!(await DisplayPopUpAlertAboutEmotion(1)))
 				{
@@ -84,7 +86,7 @@ namespace FaceOff
 
 				OnRevealPhotoImage1WithAnimation();
 
-				Insights.Track(InsightsConstants.PhotoTaken);
+				Analytics.TrackEvent(MobileCenterConstants.PhotoTaken);
 
 				IsTakeLeftPhotoButtonEnabled = false;
 				IsTakeLeftPhotoButtonVisible = false;
@@ -117,9 +119,9 @@ namespace FaceOff
 				if (doesEmotionScoreContainErrorMessage)
 				{
 					if (emotionScore.Contains(ErrorMessage[0]))
-						Insights.Track(InsightsConstants.NoFaceDetected);
+						Analytics.TrackEvent(MobileCenterConstants.NoFaceDetected);
 					else if (emotionScore.Contains(ErrorMessage[1]))
-						Insights.Track(InsightsConstants.MultipleFacesDetected);
+                        Analytics.TrackEvent(MobileCenterConstants.MultipleFacesDetected);
 
 					ScoreButton1Text = emotionScore;
 				}
@@ -142,7 +144,7 @@ namespace FaceOff
 				IsTakeLeftPhotoButtonEnabled = false;
 				IsScore2ButtonEnabled = false;
 
-				Insights.Track(InsightsConstants.PhotoButton2Tapped);
+                Analytics.TrackEvent(MobileCenterConstants.PhotoButton2Tapped);
 
 				if (!(await DisplayPopUpAlertAboutEmotion(2)))
 				{
@@ -195,9 +197,9 @@ namespace FaceOff
 				if (doesEmotionScoreContainErrorMessage)
 				{
 					if (emotionScore.Contains(ErrorMessage[0]))
-						Insights.Track(InsightsConstants.NoFaceDetected);
+                        Analytics.TrackEvent(MobileCenterConstants.NoFaceDetected);
 					else if (emotionScore.Contains(ErrorMessage[1]))
-						Insights.Track(InsightsConstants.MultipleFacesDetected);
+                        Analytics.TrackEvent(MobileCenterConstants.MultipleFacesDetected);
 
 					ScoreButton2Text = emotionScore;
 				}
@@ -219,7 +221,7 @@ namespace FaceOff
 
 			ResetButtonPressed = new Command(() =>
 			{
-				Insights.Track(InsightsConstants.ResetButtonTapped);
+                Analytics.TrackEvent(MobileCenterConstants.ResetButtonTapped);
 
 				SetEmotion();
 
@@ -250,13 +252,13 @@ namespace FaceOff
 
 			Photo1ScoreButtonPressed = new Command(() =>
 			{
-				Insights.Track(InsightsConstants.ResultsButton1Tapped);
+                Analytics.TrackEvent(MobileCenterConstants.ResultsButton1Tapped);
 				OnDisplayAllEmotionResultsAlert(_photo1Results);
 			});
 
 			Photo2ScoreButtonPressed = new Command(() =>
 			{
-				Insights.Track(InsightsConstants.ResultsButton2Tapped);
+                Analytics.TrackEvent(MobileCenterConstants.ResultsButton2Tapped);
 				OnDisplayAllEmotionResultsAlert(_photo2Results);
 			});
 		}
@@ -532,14 +534,14 @@ namespace FaceOff
 			{
 				var emotionClient = new EmotionServiceClient(CognitiveServicesConstants.EmotionApiKey);
 
-				using (var handle = Insights.TrackTime(InsightsConstants.AnalyzeEmotion))
-				{
-					return await emotionClient.RecognizeAsync(GetPhotoStream(mediaFile, disposeMediaFile));
-				}
+				//using (var handle = Analytics.TrackTime(MobileCenterConstants.AnalyzeEmotion))
+				//{
+				return await emotionClient.RecognizeAsync(GetPhotoStream(mediaFile, disposeMediaFile));
+				//}
 			}
 			catch (Exception e)
 			{
-				Insights.Report(e);
+                Analytics.TrackEvent("Exception Occured:"+ e.Message);
 				return null;
 			}
 		}
@@ -623,7 +625,7 @@ namespace FaceOff
 			}
 			catch (Exception e)
 			{
-				Insights.Report(e);
+                Analytics.TrackEvent("Exception Occured:" + e.Message);
 				return ErrorMessage[0];
 			}
 		}

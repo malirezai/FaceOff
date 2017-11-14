@@ -1,11 +1,7 @@
 ﻿namespace FaceOff
 {
-	public static class InsightsConstants
+	public static class MobileCenterConstants
 	{
-		#region API Key
-		public static string InsightsApiKey = "5dd7a435d9f55fc8243ac966a235ceff60af5e85";
-		#endregion
-
 		#region Track Events
 		public static string MultipleFacesDetected = "Multiple Faces Detected";
 		public static string NoFaceDetected = "No Face Detected";
