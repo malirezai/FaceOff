@@ -30,6 +30,29 @@ namespace FaceOff
             AppCenter.Start($"android={Keys.AndroidAppCenterKey}" +
                             $"ios={Keys.iOSAppCenterKey}",
                             typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
+
+            Push.PushNotificationReceived += async (sender, e) => {
+
+                // Add the notification message and title to the message
+                var summary = $"Push notification received:" +
+                                    $"\n\tNotification title: {e.Title}" +
+                                    $"\n\tMessage: {e.Message}";
+
+                // If there is custom data associated with the notification,
+                // print the entries
+                if (e.CustomData != null)
+                {
+                    summary += "\n\tCustom data:\n";
+                    foreach (var key in e.CustomData.Keys)
+                    {
+                        summary += $"\t\t{key} : {e.CustomData[key]}\n";
+                    }
+                }
+
+                await Current.MainPage.DisplayAlert(e.Title, e.Message, "OK");
+
+            };
+
 		}
 
         static bool OnReleaseAvailable(ReleaseDetails releaseDetails)
