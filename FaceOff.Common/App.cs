@@ -49,7 +49,7 @@ namespace FaceOff
                     }
                 }
 
-                await Current.MainPage.DisplayAlert(e.Title, e.Message, "OK");
+                await Current.MainPage.DisplayAlert($"Notification - {e.Title}", e.Message, "OK");
 
             };
 
