@@ -86,17 +86,20 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>packages\Xamarin.Forms.2.5.0.77107\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Mobile">
-      <HintPath>packages\Microsoft.Azure.Mobile.0.17.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.Azure.Mobile.dll</HintPath>
+    <Reference Include="Microsoft.AppCenter">
+      <HintPath>packages\Microsoft.AppCenter.1.0.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Analytics">
-      <HintPath>packages\Microsoft.Azure.Mobile.Analytics.0.17.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.Azure.Mobile.Analytics.dll</HintPath>
+    <Reference Include="Microsoft.AppCenter.Distribute">
+      <HintPath>packages\Microsoft.AppCenter.Distribute.1.0.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Distribute.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Crashes">
-      <HintPath>packages\Microsoft.Azure.Mobile.Crashes.0.17.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.Azure.Mobile.Crashes.dll</HintPath>
+    <Reference Include="Microsoft.AppCenter.Crashes">
+      <HintPath>packages\Microsoft.AppCenter.Crashes.1.0.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Crashes.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Distribute">
-      <HintPath>packages\Microsoft.Azure.Mobile.Distribute.0.17.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.Azure.Mobile.Distribute.dll</HintPath>
+    <Reference Include="Microsoft.AppCenter.Analytics">
+      <HintPath>packages\Microsoft.AppCenter.Analytics.1.0.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Push">
+      <HintPath>packages\Microsoft.AppCenter.Push.1.0.1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Push.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

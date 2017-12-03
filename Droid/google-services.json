@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "870414477526",
+    "firebase_url": "https://faceoff-64103.firebaseio.com",
+    "project_id": "faceoff-64103",
+    "storage_bucket": "faceoff-64103.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870414477526:android:788fbc2b6ae9b630",
+        "android_client_info": {
+          "package_name": "com.mahdia.faceoff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870414477526-6kfr7mckisl29f9upls1orod7u1rqbdn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiqpczOXSzHPnMSHVZ_-KcJVmWYyUYxeI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

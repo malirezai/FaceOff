@@ -63,7 +63,7 @@
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\FaceOff.csproj">
-      <Project>{7603FF43-E29B-4C5B-93ED-29AAC1E300A9}</Project>
+      <Project>{DCB66DB6-B63D-486A-AB0A-55F806B28846}</Project>
       <Name>FaceOff</Name>
     </ProjectReference>
   </ItemGroup>

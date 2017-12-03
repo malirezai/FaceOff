@@ -23,16 +23,6 @@ namespace FaceOff.Droid
         {
             base.OnCreate();
             RegisterActivityLifecycleCallbacks(this);
-
-			//Insights.Initialize(MobileCenterConstants.InsightsApiKey, this);
-
-			//Insights.HasPendingCrashReport += (sender, isStartupCrash) =>
-			//{
-			//	if (isStartupCrash)
-			//	{
-			//		Insights.PurgePendingCrashReports().Wait();
-			//	}
-			//};
         }
 
         public override void OnTerminate()

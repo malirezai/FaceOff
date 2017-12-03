@@ -10,8 +10,8 @@ using Microsoft.ProjectOxford.Emotion.Contract;
 
 using Xamarin;
 using Xamarin.Forms;
-using Microsoft.Azure.Mobile.Analytics;
-using Microsoft.Azure.Mobile.Crashes;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace FaceOff
 {
@@ -532,7 +532,7 @@ namespace FaceOff
 
 			try
 			{
-				var emotionClient = new EmotionServiceClient(CognitiveServicesConstants.EmotionApiKey);
+				var emotionClient = new EmotionServiceClient(Keys.EmotionApiKey);
 
 				//using (var handle = Analytics.TrackTime(MobileCenterConstants.AnalyzeEmotion))
 				//{

@@ -1,10 +1,11 @@
-﻿using Microsoft.Azure.Mobile;
-using Microsoft.Azure.Mobile.Analytics;
-using Microsoft.Azure.Mobile.Crashes;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
-using Microsoft.Azure.Mobile.Distribute;
+using Microsoft.AppCenter.Distribute;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AppCenter.Push;
 
 namespace FaceOff
 {
@@ -21,14 +22,14 @@ namespace FaceOff
 
             MainPage = mainNavPage;
 
-            MobileCenter.LogLevel = LogLevel.Verbose;
+            AppCenter.LogLevel = LogLevel.Verbose;
             Distribute.ReleaseAvailable = OnReleaseAvailable;
             Distribute.SetEnabledAsync(true);
             Analytics.SetEnabledAsync(true);
 
-            MobileCenter.Start("android=efcdeee7-b02b-40fa-a6a7-e018290cff86;" +
-                               "ios=05e5b809-8f7c-436c-8821-e34c4ad891b3;",
-                   typeof(Analytics), typeof(Crashes), typeof(Distribute));
+            AppCenter.Start($"android={Keys.AndroidAppCenterKey}" +
+                            $"ios={Keys.iOSAppCenterKey}",
+                            typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
 		}
 
         static bool OnReleaseAvailable(ReleaseDetails releaseDetails)
