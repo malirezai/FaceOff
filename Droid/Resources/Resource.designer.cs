@@ -3814,6 +3814,27 @@ namespace FaceOff.Droid
 			// aapt resource value: 0x7f080000
 			public const int common_google_play_services_unknown_issue = 2131230720;
 			
+			// aapt resource value: 0x7f080054
+			public const int default_web_client_id = 2131230804;
+			
+			// aapt resource value: 0x7f080055
+			public const int firebase_database_url = 2131230805;
+			
+			// aapt resource value: 0x7f080052
+			public const int gcm_defaultSenderId = 2131230802;
+			
+			// aapt resource value: 0x7f080056
+			public const int google_api_key = 2131230806;
+			
+			// aapt resource value: 0x7f080053
+			public const int google_app_id = 2131230803;
+			
+			// aapt resource value: 0x7f080057
+			public const int google_crash_reporting_api_key = 2131230807;
+			
+			// aapt resource value: 0x7f080058
+			public const int google_storage_bucket = 2131230808;
+			
 			// aapt resource value: 0x7f08003f
 			public const int library_name = 2131230783;
 			
