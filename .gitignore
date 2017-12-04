@@ -310,3 +310,11 @@ __pycache__/
 # tools/
 
 ### VisualStudio Patch ###
+
+certs ios/certp12.p12
+
+certs ios/keys.rtf
+
+certs ios/Mahdi_iPhone_Work_Dist.mobileprovision
+
+FaceOffiOS.ipa
