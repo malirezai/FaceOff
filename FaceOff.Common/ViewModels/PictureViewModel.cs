@@ -12,6 +12,7 @@ using Xamarin;
 using Xamarin.Forms;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using System.Collections.Generic;
 
 namespace FaceOff
 {
@@ -63,7 +64,10 @@ namespace FaceOff
 				IsTakeRightPhotoButtonEnabled = false;
 				IsScore1ButtonEnabled = false;
 
-                Analytics.TrackEvent(MobileCenterConstants.PhotoButton1Tapped);
+                var dict = new Dictionary<string, string>();
+                dict.Add("username", "mahdi");
+
+                Analytics.TrackEvent(MobileCenterConstants.PhotoButton1Tapped, dict);
 
 				if (!(await DisplayPopUpAlertAboutEmotion(1)))
 				{
