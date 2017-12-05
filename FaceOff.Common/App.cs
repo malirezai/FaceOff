@@ -6,6 +6,7 @@ using Microsoft.AppCenter.Distribute;
 using System;
 using System.Threading.Tasks;
 using Microsoft.AppCenter.Push;
+using System.Runtime.InteropServices;
 
 namespace FaceOff
 {
@@ -30,6 +31,13 @@ namespace FaceOff
             AppCenter.Start($"android={Keys.AndroidAppCenterKey}" +
                             $"ios={Keys.iOSAppCenterKey}",
                             typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
+
+
+            var customprops = new CustomProperties();
+            customprops.Set("username", "mahdi");
+
+
+            AppCenter.SetCustomProperties(customprops);
 
             Push.PushNotificationReceived += async (sender, e) => {
 
