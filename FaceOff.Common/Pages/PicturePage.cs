@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using FaceOff.Helpers;
 
 namespace FaceOff
 {
@@ -22,10 +23,18 @@ namespace FaceOff
 			this.SetBinding(ContentPage.TitleProperty, "PageTitle");
             BackgroundColor = Color.FromHex("#769FB6");
 
-            ToolbarItems.Add(new ToolbarItem("X", null, () =>
+            ToolbarItems.Add(new ToolbarItem("⨉", null, () =>
             {
-                throw new Exception("Crash button tapped");
+                try
+                {
+                    throw new Exception("Crash button tapped");
+                }
+                catch (Exception e)
+                {
+                    AnalyticsHelper.Report(e);
+                }
             }));
+
 
 			#region Create Score Button 1 Stack
 			_photo1ScoreButton = new BounceButton(AutomationIdConstants.ScoreButton1AutomationId);

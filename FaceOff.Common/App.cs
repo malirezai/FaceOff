@@ -7,11 +7,14 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AppCenter.Push;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using FaceOff.Helpers;
 
 namespace FaceOff
 {
 	public class App : Application
 	{
+        public static string APPCENTER_INSTALLID;
 		public static bool IsBounceButtonAnimationInProgress;
 
 		readonly PicturePage _picturePage = new PicturePage();
@@ -31,11 +34,6 @@ namespace FaceOff
             AppCenter.Start($"android={Keys.AndroidAppCenterKey}" +
                             $"ios={Keys.iOSAppCenterKey}",
                             typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
-            
-            var customprops = new CustomProperties();
-            customprops.Set("username", "mahdi");
-
-            AppCenter.SetCustomProperties(customprops);
 
             Push.PushNotificationReceived += async (sender, e) => {
 
@@ -58,6 +56,8 @@ namespace FaceOff
                 await Current.MainPage.DisplayAlert($"Notification - {e.Title}", e.Message, "OK");
 
             };
+
+            Settings.Username = "mahdi";
 
 		}
 
@@ -102,9 +102,21 @@ namespace FaceOff
             return true;
         }
 
-		protected override void OnStart()
+		protected async override void OnStart()
 		{
-			// Handle when your app starts
+            // Handle when your app starts
+            var id = await AppCenter.GetInstallIdAsync();
+            APPCENTER_INSTALLID = id.ToString();
+
+            var customprops = new CustomProperties();
+            customprops.Set("username", "mahdi");
+
+            customprops.Set("installID", APPCENTER_INSTALLID);
+
+            AppCenter.SetCustomProperties(customprops);
+
+            AnalyticsHelper.TrackEvent("App Started");
+
 		}
 
 		protected override void OnSleep()
