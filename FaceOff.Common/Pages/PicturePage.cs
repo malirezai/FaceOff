@@ -29,7 +29,7 @@ namespace FaceOff
 
 			#region Create Score Button 1 Stack
 			_photo1ScoreButton = new BounceButton(AutomationIdConstants.ScoreButton1AutomationId);
-			_photo1ScoreButton.SetBinding(Button.TextProperty, "ScoreButton1Text");
+            _photo1ScoreButton.SetBinding(Button.TextProperty, nameof(_viewModel.ScoreButton1Text));
 			_photo1ScoreButton.SetBinding(IsEnabledProperty, "IsScore1ButtonEnabled");
 			_photo1ScoreButton.SetBinding(IsVisibleProperty, "IsScore1ButtonVisable");
 			_photo1ScoreButton.SetBinding(Button.CommandProperty, "Photo1ScoreButtonPressed");

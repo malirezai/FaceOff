@@ -31,11 +31,9 @@ namespace FaceOff
             AppCenter.Start($"android={Keys.AndroidAppCenterKey}" +
                             $"ios={Keys.iOSAppCenterKey}",
                             typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
-
-
+            
             var customprops = new CustomProperties();
             customprops.Set("username", "mahdi");
-
 
             AppCenter.SetCustomProperties(customprops);
 
