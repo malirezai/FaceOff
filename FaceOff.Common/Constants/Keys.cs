@@ -11,5 +11,9 @@
         public const string AndroidAppCenterKey = "androidkey";
         public const string iOSAppCenterKey = "ioskey";
 #endif
+
+        public const string CosmodDatabase = "db";
+        public const string CosmosCollection = "dataCollection";
+        public const string Endpoint = "https://cosmosfunctionsdemo.documents.azure.com";
     }
 }

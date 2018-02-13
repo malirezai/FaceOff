@@ -9,6 +9,9 @@ using Microsoft.AppCenter.Push;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using FaceOff.Helpers;
+using CosmosDBResourceTokenBroker.Shared;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace FaceOff
 {
@@ -18,6 +21,8 @@ namespace FaceOff
 		public static bool IsBounceButtonAnimationInProgress;
 
 		readonly PicturePage _picturePage = new PicturePage();
+
+        static HttpClient _client = new HttpClient();
 
 		public App()
 		{
@@ -117,7 +122,28 @@ namespace FaceOff
 
             AnalyticsHelper.TrackEvent("App Started");
 
+            var username = "mahdi@example.com";
+
+            var token = await GetCosmosResourceToken(username);
+
+            CosmosDBRepository.Instance
+                              .Endpoint(Keys.Endpoint)
+                              .Collection(Keys.CosmosCollection)
+                              .Database(Keys.CosmodDatabase)
+                              .PartitionKey(username)
+                              .AuthKeyOrResourceToken(token);
+            
 		}
+
+
+        public async Task<string> GetCosmosResourceToken(string username)
+        {
+            var res = await _client.GetStringAsync($"https://cosmosfunctionsdemo.azurewebsites.net/api/CosmosDBResourceToken?username={username}");
+
+            var token = JsonConvert.DeserializeObject<PermissionToken>(res);
+
+            return token?.Token ?? "";
+        }
 
 		protected override void OnSleep()
 		{

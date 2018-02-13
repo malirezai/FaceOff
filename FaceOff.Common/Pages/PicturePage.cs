@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using FaceOff.Helpers;
+using FaceOff.Pages;
 
 namespace FaceOff
 {
@@ -23,16 +24,9 @@ namespace FaceOff
 			this.SetBinding(ContentPage.TitleProperty, "PageTitle");
             BackgroundColor = Color.FromHex("#769FB6");
 
-            ToolbarItems.Add(new ToolbarItem("⨉", null, () =>
+            ToolbarItems.Add(new ToolbarItem("Results", null, () =>
             {
-                try
-                {
-                    throw new Exception("Crash button tapped");
-                }
-                catch (Exception e)
-                {
-                    AnalyticsHelper.Report(e);
-                }
+                Navigation.PushAsync(new GameResultsPage());
             }));
 
 

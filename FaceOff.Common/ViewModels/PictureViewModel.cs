@@ -14,6 +14,8 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using System.Collections.Generic;
 using FaceOff.Helpers;
+using CosmosDBResourceTokenBroker.Shared;
+using CosmosDBResourceTokenBroker.Shared.Models;
 
 namespace FaceOff
 {
@@ -62,7 +64,7 @@ namespace FaceOff
 
 			TakePhoto1ButtonPressed = new Command(async () =>
 			{
-				IsTakeRightPhotoButtonEnabled = false;
+                IsTakeRightPhotoButtonEnabled = false;
 				IsScore1ButtonEnabled = false;
 
                 var dict = new Dictionary<string, string>();
@@ -228,6 +230,8 @@ namespace FaceOff
 			{
                 AnalyticsHelper.TrackEvent(MobileCenterConstants.ResetButtonTapped);
 
+                SaveGame();
+
 				SetEmotion();
 
 				Photo1ImageSource = null;
@@ -267,10 +271,27 @@ namespace FaceOff
 				OnDisplayAllEmotionResultsAlert(_photo2Results);
 			});
 		}
-		#endregion
 
-		#region Properties
-		public Command TakePhoto1ButtonPressed { get; protected set; }
+        private void SaveGame()
+        {
+            var score1 = 2;//double.Parse(ScoreButton1Text.Trim('%'));
+            var score2 = 10;//double.Parse(ScoreButton2Text.Trim('%'));
+
+
+            var newResult = new GameResult
+            {
+                WinnerName = score1 > score2 ? "Player1" : "Player2",
+                WinnerScore = score1 > score2 ? score1.ToString() : score2.ToString()
+            };
+
+            CosmosDBRepository.Instance.UpsertItemAsync(newResult);
+
+        }
+
+        #endregion
+
+        #region Properties
+        public Command TakePhoto1ButtonPressed { get; protected set; }
 		public Command TakePhoto2ButtonPressed { get; protected set; }
 		public Command ResetButtonPressed { get; protected set; }
 		public Command SubmitButtonPressed { get; protected set; }
