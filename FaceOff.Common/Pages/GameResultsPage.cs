@@ -26,7 +26,6 @@ namespace FaceOff.Pages
 
             indicatior.SetBinding(ActivityIndicator.IsRunningProperty, nameof(_viewModel.IsBusy));
 
-
             listView.ItemTemplate = new DataTemplate(typeof(TextCell));
 
             listView.SetBinding(ListView.ItemsSourceProperty, nameof(_viewModel.Data));

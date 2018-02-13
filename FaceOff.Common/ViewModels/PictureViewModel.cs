@@ -32,7 +32,8 @@ namespace FaceOff
 
 		#region Fields
 		ImageSource _photo1ImageSource, _photo2ImageSource;
-		string _scoreButton1Text, _scoreButton2Text;
+        string _scoreButton1Text, _scoreButton2Text;
+        double Player1Score,Player2Score;
 		bool _isTakeLeftPhotoButtonEnabled = true;
 		bool _isTakeLeftPhotoButtonVisible = true;
 		bool _isTakeRightPhotoButtonEnabled = true;
@@ -134,6 +135,7 @@ namespace FaceOff
 				}
 				else
 					ScoreButton1Text = $"Score: {emotionScore}";
+                    Player1Score = double.Parse(emotionScore.Trim('%'));
 
 				_photo1Results = GetStringOfAllPhotoEmotionScores(emotionArray, 0);
 
@@ -213,6 +215,7 @@ namespace FaceOff
 				else
 				{
 					ScoreButton2Text = $"Score: {emotionScore}";
+                    Player2Score = double.Parse(emotionScore.Trim('%'));
 				}
 
 				_photo2Results = GetStringOfAllPhotoEmotionScores(emotionArray, 0);
@@ -274,14 +277,13 @@ namespace FaceOff
 
         private void SaveGame()
         {
-            var score1 = double.Parse(ScoreButton1Text.Trim('%'));
-            var score2 = double.Parse(ScoreButton2Text.Trim('%'));
-
-
+            if (Player1Score == null || Player2Score == null)
+                return;
+            
             var newResult = new GameResult
             {
-                WinnerName = score1 > score2 ? "Player1" : "Player2",
-                WinnerScore = score1 > score2 ? score1.ToString() : score2.ToString()
+                WinnerName = Player1Score > Player2Score ? "Player1" : "Player2",
+                WinnerScore = Player1Score > Player2Score ? Player1Score.ToString() + "%" : Player2Score.ToString() + "%"
             };
 
             CosmosDBRepository.Instance.UpsertItemAsync(newResult);
