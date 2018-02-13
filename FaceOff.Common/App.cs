@@ -27,7 +27,7 @@ namespace FaceOff
 		public App()
 		{
             var mainNavPage = new NavigationPage(_picturePage);
-            mainNavPage.BarBackgroundColor = Color.FromHex("#188FA7");
+            mainNavPage.BarBackgroundColor = Color.Violet;//Color.FromHex("#188FA7");
             mainNavPage.BarTextColor = Color.White; 
 
             MainPage = mainNavPage;
