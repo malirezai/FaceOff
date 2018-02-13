@@ -4,6 +4,8 @@ using CosmosDBResourceTokenBroker.Shared.Models;
 using System.Threading.Tasks;
 using CosmosDBResourceTokenBroker.Shared;
 using Xamarin.Forms;
+using Microsoft.AppCenter.Analytics;
+using FaceOff.Helpers;
 namespace FaceOff.ViewModels
 {
     public class GameResultsViewModel : BaseViewModel
@@ -32,14 +34,21 @@ namespace FaceOff.ViewModels
         public async Task GetAllGames()
         {
             IsBusy = true;
-            var dataList = await CosmosDBRepository.Instance.GetAllItemsAsync<GameResult>();
-
-            _data.Clear();
-            foreach (var item in dataList)
+            try
             {
-                Data.Add(item);
+                var dataList = await CosmosDBRepository.Instance.GetAllItemsAsync<GameResult>();
+
+                _data.Clear();
+                foreach (var item in dataList)
+                {
+                    Data.Add(item);
+                }
+                IsBusy = false;
             }
-            IsBusy = false;
+            catch (Exception e)
+            {
+                AnalyticsHelper.TrackEvent("app exception : " + e.Message);
+            }
         }
     }
 }
