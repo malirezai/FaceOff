@@ -28,9 +28,10 @@ namespace FaceOff
 		readonly string[] ErrorMessage = { "No Face Detected", "Error" };
 		const string MakeAFaceAlertMessage = "take a selfie looking ";
 		const string CalculatingScore = "Analyzing";
-		#endregion
+        #endregion
 
-		#region Fields
+        #region Fields
+        bool ErrorInGame = false;
 		ImageSource _photo1ImageSource, _photo2ImageSource;
         string _scoreButton1Text, _scoreButton2Text;
         double Player1Score,Player2Score;
@@ -124,19 +125,21 @@ namespace FaceOff
 
 				bool doesEmotionScoreContainErrorMessage = DoesStringContainErrorMessage(emotionScore);
 
-				if (doesEmotionScoreContainErrorMessage)
-				{
-					if (emotionScore.Contains(ErrorMessage[0]))
+                if (doesEmotionScoreContainErrorMessage)
+                {
+                    if (emotionScore.Contains(ErrorMessage[0]))
                         AnalyticsHelper.TrackEvent(MobileCenterConstants.NoFaceDetected);
-					else if (emotionScore.Contains(ErrorMessage[1]))
+                    else if (emotionScore.Contains(ErrorMessage[1]))
                         AnalyticsHelper.TrackEvent(MobileCenterConstants.MultipleFacesDetected);
 
-					ScoreButton1Text = emotionScore;
-				}
-				else
-					ScoreButton1Text = $"Score: {emotionScore}";
+                    ScoreButton1Text = emotionScore;
+                    ErrorInGame = true;
+                }
+                else
+                {
+                    ScoreButton1Text = $"Score: {emotionScore}";
                     Player1Score = double.Parse(emotionScore.Trim('%'));
-
+                }
 				_photo1Results = GetStringOfAllPhotoEmotionScores(emotionArray, 0);
 
 				IsCalculatingPhoto1Score = false;
@@ -211,6 +214,7 @@ namespace FaceOff
                         AnalyticsHelper.TrackEvent(MobileCenterConstants.MultipleFacesDetected);
 
 					ScoreButton2Text = emotionScore;
+                    ErrorInGame = true;
 				}
 				else
 				{
@@ -236,6 +240,8 @@ namespace FaceOff
                 SaveGame();
 
 				SetEmotion();
+
+                ErrorInGame = false;
 
 				Photo1ImageSource = null;
 				Photo2ImageSource = null;
@@ -277,7 +283,7 @@ namespace FaceOff
 
         private void SaveGame()
         {
-            if (Player1Score == null || Player2Score == null)
+            if (ErrorInGame)
                 return;
             
             var newResult = new GameResult
