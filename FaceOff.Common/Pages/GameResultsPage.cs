@@ -16,17 +16,44 @@ namespace FaceOff.Pages
 
             ListView listView = new ListView();
 
+            var indicatior = new ActivityIndicator
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                HeightRequest = 50,
+                WidthRequest = 50
+            };
+
+            indicatior.SetBinding(ActivityIndicator.IsRunningProperty, nameof(_viewModel.IsBusy));
+
+
             listView.ItemTemplate = new DataTemplate(typeof(TextCell));
 
             listView.SetBinding(ListView.ItemsSourceProperty, nameof(_viewModel.Data));
             listView.ItemTemplate.SetBinding(TextCell.TextProperty, nameof(GameResult.WinnerName));
             listView.ItemTemplate.SetBinding(TextCell.DetailProperty, nameof(GameResult.WinnerScore));
 
-            StackLayout stackLayout = new StackLayout();
+            RelativeLayout layout = new RelativeLayout();
 
-            stackLayout.Children.Add(listView);
+            layout.Children.Add(listView,
+                                Constraint.RelativeToParent((parent) =>
+                                {
+                                    return parent.X;
+                                }), Constraint.RelativeToParent((parent) =>
+                                {
+                                    return parent.Y;
+                                }));
 
-            Content = stackLayout;
+            layout.Children.Add(indicatior,
+                                Constraint.RelativeToParent((parent) =>
+                                {
+                                    return parent.Width / 2 - 25;
+                                }),Constraint.RelativeToParent((parent) =>
+                                {
+                                    return parent.Height / 2 - 25;
+                                }));
+
+            Content = layout;
         }
 
         protected async override void OnAppearing()

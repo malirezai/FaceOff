@@ -9,6 +9,20 @@ namespace FaceOff
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
+        bool _isBusy;
+        public bool IsBusy
+        {
+            get
+            {
+                return _isBusy;
+            }
+            set
+            {
+                SetProperty(ref _isBusy, value);
+            }
+        }
+
+
 		protected void SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyname = "", Action onChanged = null)
 		{
 			if (EqualityComparer<T>.Default.Equals(backingStore, value))

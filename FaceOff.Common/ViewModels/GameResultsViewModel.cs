@@ -31,6 +31,7 @@ namespace FaceOff.ViewModels
 
         public async Task GetAllGames()
         {
+            IsBusy = true;
             var dataList = await CosmosDBRepository.Instance.GetAllItemsAsync<GameResult>();
 
             _data.Clear();
@@ -38,6 +39,7 @@ namespace FaceOff.ViewModels
             {
                 Data.Add(item);
             }
+            IsBusy = false;
         }
     }
 }

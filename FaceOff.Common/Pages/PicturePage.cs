@@ -21,6 +21,7 @@ namespace FaceOff
 		#region Constructors
 		public PicturePage()
 		{
+            
 			this.SetBinding(ContentPage.TitleProperty, "PageTitle");
             BackgroundColor = Color.FromHex("#769FB6");
 

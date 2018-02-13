@@ -274,8 +274,8 @@ namespace FaceOff
 
         private void SaveGame()
         {
-            var score1 = 2;//double.Parse(ScoreButton1Text.Trim('%'));
-            var score2 = 10;//double.Parse(ScoreButton2Text.Trim('%'));
+            var score1 = double.Parse(ScoreButton1Text.Trim('%'));
+            var score2 = double.Parse(ScoreButton2Text.Trim('%'));
 
 
             var newResult = new GameResult
