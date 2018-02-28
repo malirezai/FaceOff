@@ -2,12 +2,26 @@
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+//using Plugin.Connectivity;
 
 namespace FaceOff
 {
-	public class BaseViewModel : INotifyPropertyChanged
-	{
-		public event PropertyChangedEventHandler PropertyChanged;
+    public class BaseViewModel : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public BaseViewModel(){
+
+           // Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged+= Current_ConnectivityChanged;
+
+        }
+
+        //void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
+        //{
+
+           
+        //}
 
         bool _isBusy;
         public bool IsBusy
