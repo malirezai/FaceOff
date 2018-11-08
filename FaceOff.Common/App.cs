@@ -125,14 +125,14 @@ namespace FaceOff
 
             var username = "mahdi@example.com";
 
-            var token = await GetCosmosResourceToken(username);
+            //var token = await GetCosmosResourceToken(username);
 
-            CosmosDBRepository.Instance
-                              .Endpoint(Keys.Endpoint)
-                              .Collection(Keys.CosmosCollection)
-                              .Database(Keys.CosmodDatabase)
-                              .PartitionKey(username)
-                              .AuthKeyOrResourceToken(token);
+            //CosmosDBRepository.Instance
+                              //.Endpoint(Keys.Endpoint)
+                              //.Collection(Keys.CosmosCollection)
+                              //.Database(Keys.CosmodDatabase)
+                              //.PartitionKey(username)
+                              //.AuthKeyOrResourceToken(token);
             
 		}
 

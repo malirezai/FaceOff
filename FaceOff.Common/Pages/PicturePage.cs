@@ -25,10 +25,10 @@ namespace FaceOff
 			this.SetBinding(ContentPage.TitleProperty, "PageTitle");
             BackgroundColor = Color.FromHex("#769FB6");
 
-            ToolbarItems.Add(new ToolbarItem("Results", null, () =>
-            {
-                Navigation.PushAsync(new GameResultsPage());
-            }));
+            //ToolbarItems.Add(new ToolbarItem("Results", null, () =>
+            //{
+            //    Navigation.PushAsync(new GameResultsPage());
+            //}));
 
 
 			#region Create Score Button 1 Stack
