@@ -6,7 +6,7 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 
 using Microsoft.ProjectOxford.Emotion;
-using Microsoft.ProjectOxford.Emotion.Contract;
+using Microsoft.ProjectOxford.Common.Contract;
 
 using Xamarin;
 using Xamarin.Forms;
@@ -570,7 +570,7 @@ namespace FaceOff
 
 				//using (var handle = Analytics.TrackTime(MobileCenterConstants.AnalyzeEmotion))
 				//{
-				return await emotionClient.RecognizeAsync(GetPhotoStream(mediaFile, disposeMediaFile));
+                return await emotionClient.RecognizeAsync(GetPhotoStream(mediaFile, disposeMediaFile));
 				//}
 			}
 			catch (Exception e)

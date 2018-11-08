@@ -13,9 +13,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta1" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
     <PackageReference Include="Xam.Plugin.Media" Version="3.0.1" />
-    <PackageReference Include="Microsoft.ProjectOxford.Emotion" Version="1.0.336" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
     <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.8.1" />
+    <PackageReference Include="Microsoft.ProjectOxford.Emotion" Version="2.0.40" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CosmosDBResourceTokenBroker.Shared\CosmosDBResourceTokenBroker.Shared.csproj" />
